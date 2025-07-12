@@ -2,33 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My GitHub Pages Site</title>
+  <title>Tech Style Background</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    .background-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: 
+        linear-gradient(#222 1px, transparent 1px),
+        linear-gradient(to right, #222 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: moveGrid 20s linear infinite;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    @keyframes moveGrid {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-50px, -50px); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding-top: 100px;
-      background: #f5f5f5;
+      top: 40%;
     }
 
     h1 {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.5s ease-out forwards;
+      font-size: 3rem;
+      letter-spacing: 2px;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    p {
+      font-size: 1.2rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website!</h1>
-</body>
-<body>
-  <p>enjoy</p>
+
+  <div class="background-grid"></div>
+
+  <div class="content">
+    <h1>Next-Gen Technology</h1>
+    <p>Speed, security, and innovation in every click.</p>
+  </div>
+
 </body>
 </html>
