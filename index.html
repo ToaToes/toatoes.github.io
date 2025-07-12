@@ -18,6 +18,30 @@
       overflow: hidden;
     }
 
+    /* sections (hero and bussiness intro) */
+    section {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    #hero {
+      z-index: 2;
+    }
+
+    #business {
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      opacity: 0;
+      transform: translateY(50px);
+      z-index: 1;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Fade-In Animation */
     @keyframes fadeIn {
       0% {
@@ -147,30 +171,63 @@
       font-size: 1.2rem;
       color: #aaa;
     }
+
+    
   </style>
 </head>
+
+<!-- Javascript to handle scroll-triggered transition -->
+<script>
+  window.addEventListener('scroll', () => {
+    const businessSection = document.getElementById('business');
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 50) {
+      businessSection.classList.add('visible');
+    } else {
+      businessSection.classList.remove('visible');
+    }
+  });
+</script>
+  
 <body>
 
-  <!-- Fade-in Grid -->
-  <div class="background-grid fade-in delay-2"></div>
+  <!-- First part intro -->
+  <section id="hero">
+    
+      <!-- Fade-in Grid -->
+      <div class="background-grid fade-in delay-2"></div>
 
-  <!-- Fade-in Pulse -->
-  <div class="pulse-circle fade-in delay-2"></div>
+      <!-- Fade-in Pulse -->
+      <div class="pulse-circle fade-in delay-2"></div>
 
-  <!-- Fade-in Particles -->
-  <div class="particles fade-in delay-2">
-    <div class="particle" style="left:10%; animation-duration: 8s; animation-delay: 0s;"></div>
-    <div class="particle" style="left:30%; animation-duration: 10s; animation-delay: 2s;"></div>
-    <div class="particle" style="left:50%; animation-duration: 12s; animation-delay: 1s;"></div>
-    <div class="particle" style="left:70%; animation-duration: 9s; animation-delay: 3s;"></div>
-    <div class="particle" style="left:90%; animation-duration: 11s; animation-delay: 1.5s;"></div>
-  </div>
+      <!-- Fade-in Particles -->
+      <div class="particles fade-in delay-2">
+        <div class="particle" style="left:10%; animation-duration: 8s; animation-delay: 0s;"></div>
+        <div class="particle" style="left:30%; animation-duration: 10s; animation-delay: 2s;"></div>
+        <div class="particle" style="left:50%; animation-duration: 12s; animation-delay: 1s;"></div>
+        <div class="particle" style="left:70%; animation-duration: 9s; animation-delay: 3s;"></div>
+        <div class="particle" style="left:90%; animation-duration: 11s; animation-delay: 1.5s;"></div>
+      </div>
 
-  <!-- Fade-in Content -->
-  <div class="content fade-in delay-2">
-    <h1>Next-Gen Technology</h1>
-    <p>Speed, security, and innovation in every click.</p>
-  </div>
+      <!-- Fade-in Content -->
+      <div class="content fade-in delay-2">
+        <h1>Next-Gen Technology</h1>
+        <p>Speed, security, and innovation in every click.</p>
+      </div>
+  </section>
+
+
+  <!-- Second section: Company Business -->
+  <section id="bussiness">
+    <div style="text-align: center; padding-top: 20vh;">
+      <h2 style="font-size: 2.5rem; color: #0ff;">Welcome to BitHouse</h2>
+      <p style="font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 20px auto;">
+        At BitHouse Technology, we specialize in cutting-edge solutions for blockchain, cloud infrastructure, and digital security. Our mission is to accelerate innovation with smart, scalable systems.
+      </p>
+    </div>
+  </section>
+
 
 </body>
 </html>
