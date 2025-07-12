@@ -16,14 +16,14 @@
     }
 
     body {
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       font-family: 'Segoe UI', sans-serif;
       color: white;
-      overflow: hidden;
+      overflow-x: hidden;  /* allow vertical scrolling */
     }
 
-    /* sections (hero and bussiness intro) */
+    /* sections (hero and business intro) */
     section {
       height: 100vh;
       width: 100%;
@@ -33,6 +33,8 @@
 
     #hero {
       z-index: 2;
+      /* visible scroll indicator. */
+      <a href="#business" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 1.2rem; color: #0ff; text-decoration: none;">↓ Scroll Down</a>
     }
 
     #business {
