@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tech Style Background</title>
+  <title>BitHouse Technology</title>
   <style>
     * {
       margin: 0;
@@ -17,6 +17,27 @@
       color: white;
       overflow: hidden;
     }
+
+    /* Fade-In Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    .fade-in.delay-1 { animation-delay: 0.3s; }
+    .fade-in.delay-2 { animation-delay: 0.6s; }
+    .fade-in.delay-3 { animation-delay: 1s; }
 
     /* Background grid animation */
     .background-grid {
@@ -130,10 +151,14 @@
 </head>
 <body>
 
-  <div class="background-grid"></div>
-  <div class="pulse-circle"></div>
-  <div class="particles">
-    <!-- Generate a few particles manually -->
+  <!-- Fade-in Grid -->
+  <div class="background-grid fade-in delay-1"></div>
+
+  <!-- Fade-in Pulse -->
+  <div class="pulse-circle fade-in delay-2"></div>
+
+  <!-- Fade-in Particles -->
+  <div class="particles fade-in delay-3">
     <div class="particle" style="left:10%; animation-duration: 8s; animation-delay: 0s;"></div>
     <div class="particle" style="left:30%; animation-duration: 10s; animation-delay: 2s;"></div>
     <div class="particle" style="left:50%; animation-duration: 12s; animation-delay: 1s;"></div>
@@ -141,7 +166,8 @@
     <div class="particle" style="left:90%; animation-duration: 11s; animation-delay: 1.5s;"></div>
   </div>
 
-  <div class="content">
+  <!-- Fade-in Content -->
+  <div class="content fade-in delay-3">
     <h1>Next-Gen Technology</h1>
     <p>Speed, security, and innovation in every click.</p>
   </div>
