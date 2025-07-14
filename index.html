@@ -33,7 +33,7 @@
 
     #hero {
       z-index: 2;
-      overflow: hidden; /* ← Prevents hero's visual effects from spilling over */
+      overflow: visible; /* ← Prevents hero's visual effects from spilling over */
     }
 
     #business {
@@ -41,6 +41,14 @@
       opacity: 0;
       transform: translateY(50px);
       z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Remove the border from your business content div */
+    #business > div {
+      border: none !important;
     }
 
     section.visible {
@@ -178,6 +186,13 @@
       color: #aaa;
     }
 
+    .business-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
     
   </style>
 </head>
@@ -188,7 +203,7 @@
     const businessSection = document.getElementById('business');
     const scrollY = window.scrollY || window.pageYOffset;
 
-    if (scrollY > 50) {
+    if (scrollY > heroHeight * 0.7) { // Trigger when 70% of hero is scrolled
       businessSection.classList.add('visible');
     } else {
       businessSection.classList.remove('visible');
@@ -229,7 +244,7 @@
 
 
   <!-- Second section: Company Business -->
-  <section id="business" class="visible">
+  <section id="business" >
     <!-- <div style="text-align: center; padding-top: 20vh;"> -->
     <div style="text-align: center; padding-top: 20vh; position: relative; z-index: 5; border: 1px solid red;">
       <h2 style="font-size: 2.5rem; color: #0ff;">Welcome to BitHouse</h2>
