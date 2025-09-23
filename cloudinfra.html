@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Infrastructure - BitHouse</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+    }
+
+    .container {
+      position: relative;
+      flex-direction: column; /* stack vertically */
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-side {
+      position: relative;
+      flex: 1;
+      background-color: #111;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-side img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      object-fit: cover;
+      opacity: 0.6; /* Optional: dim image for readability */
+ 
+    }
+
+    .text-side {
+      position: absolute;
+      top: 0;
+      right: 0;
+      flex: 1;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;;
+      height: 100%;
+      width: 100%;
+      align-items: flex-end;
+      text-align: right; /* Right-align text */
+      z-index: 2;
+    }
+
+    .text-side .text-block {
+      max-width: 600px;      /* Limit width for readability */
+      margin-top: 2rem;      /* Add spacing from heading */
+      line-height: 1.8;      /* Improve line spacing */
+      font-size: 1.15rem;
+      letter-spacing: 0.3px;
+      font-weight: 300;
+    }
+
+    /*
+    a {
+      color: #0ff;
+      text-decoration: none;
+      margin-top: 2rem;
+      display: inline-block;
+      font-size: 1.05rem; /* Adjust link size 
+
+      /* Enhanced glow effect 
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
+                   0 0 16px rgba(0, 255, 255, 0.2),
+                   0 0 24px rgba(0, 255, 255, 0.1);
+    }
+    */
+
+    h1 {
+      color: #0ff;
+      margin-bottom: 1.5rem;
+      font-size: 6rem; /* Larger, prominent heading */
+    }
+
+    p {
+      color: #ccc;
+      line-height: 1.9;  /* Slightly increased for better readability */
+      margin-bottom: 1.8rem;
+      font-size: 1.2rem; /* Adjusted paragraph size */
+      letter-spacing: 0.3px;      /* Slightly improved letter spacing */
+      font-weight: 300;           /* Lighter font weight for a smoother look */
+
+      /* Enhanced glow effect */
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
+                   0 0 16px rgba(0, 255, 255, 0.2),
+                   0 0 24px rgba(0, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-side">
+      <h1>Cloud Infrastructure</h1>
+      <p>We provide robust, scalable cloud architecture for businesses of all sizes — from startups to enterprises. Our services include cloud migration, DevOps pipelines, containerization (Docker/Kubernetes), and managed cloud hosting.</p>
+      <p>Optimize performance, reduce cost, and scale with confidence — powered by AWS, Azure, or GCP.</p>
+      <!-- <a href="index.html">⬅ Back to Home</a> -->
+    </div>
+    <div class="image-side">
+        <img src="cloud.png" alt="Cloud Infrastructure">
+    </div>
+</body>
+</html>
