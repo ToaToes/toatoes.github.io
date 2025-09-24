@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css"> <!-- Optional external stylesheet -->
+  <style>
+    body, html {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      height: 100%;
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .image-side {
+      position: relative;
+      flex: 1;
+      background-color: #0f0f0f;
+      width: 100%;
+      height: 30vh;
+      overflow: hidden;
+    }
+
+    .image-side img {
+      max-width: 60%; /* or any percentage you prefer */
+      max-height: 60%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+      padding: 3rem; /* optional spacing */
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #0ff;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .info-section {
+      margin-bottom: -2rem;
+    }
+
+    .info-section h2 {
+      font-size: 1.6rem;
+      color: #0ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin: 0.3rem 0;
+    }
+
+    .contact-form {
+      margin-top: 3rem;
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #0ff;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      background-color: #0f0f0f;
+      border: 1px solid #0ff;
+      border-radius: 4px;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background-color: #0ff;
+      color: #0f0f0f;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #00cccc;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 3rem;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .info-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem; /* optional: controls spacing between sections */
+    }
+
+    .info-section {
+      margin-top: 2rem;
+      width: 48%;
+      text-align: left; /* optional: makes layout cleaner in columns */
+    }
+
+    footer {
+      background-color: #0f0f0f;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #888;
+      font-size: 0.9rem;
+      border-top: 2px solid #222;
+      margin-top: 10rem;
+    }
+
+    @media (max-width: 768px) {
+      .info-section {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-side">
+      <img src="logo.png" alt="Logo Image">
+    </div>
+    <!-- <h1>Contact BitHouse Technology</h1> -->
+    <div class="info-wrapper">
+      <!-- Office Info -->
+      <div class="info-section">
+        <h2>Our Office</h2>
+        <p>BitHouse Technology Inc.</p>
+        <p>1234 Innovation Way</p>
+        <p>Silicon Valley, CA 94043</p>
+      </div>
+
+      <!-- Office Hours -->
+      <div class="info-section">
+        <h2>Office Hours</h2>
+        <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
+        <p>Saturday & Sunday: Closed</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="info-section">
+        <h2>Contact Us</h2>
+        <p><strong>Phone:</strong> <a href="tel:+1234567890" style="color: #0ff;">+1 (234) 567-890</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@bithouse.tech" style="color: #0ff;">info@bithouse.tech</a></p>
+        <p><strong>Support:</strong> <a href="mailto:support@bithouse.tech" style="color: #0ff;">support@bithouse.tech</a></p>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="info-section">
+        <h2>Follow Us</h2>
+        <p>
+          <a href="https://www.linkedin.com/company/bithouse-tech" target="_blank" style="color: #0ff;">LinkedIn</a> | 
+          <a href="https://twitter.com/bithousetech" target="_blank" style="color: #0ff;">Twitter</a> | 
+          <a href="https://www.facebook.com/bithousetech" target="_blank" style="color: #0ff;">Facebook</a>
+        </p>
+      </div>
+
+    <!-- Contact Form (optional) 
+    <form class="contact-form">
+      <h2>Send Us a Message</h2>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    -->
+
+    <!-- Back to homepage -->
+    <!-- <a href="index.html" class="back-link">⬅ Back to Home</a> -->
+  </div>
+  <footer>
+    &copy; 2025 BitHouse Technical Services Inc. All rights reserved.
+  </footer>
+  
+</body>
+</html>
