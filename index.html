@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- This ensures proper scaling and layout on mobile devices: -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BitHouse Technology</title>
 
     <!-- Favicon links - fixed paths -->
@@ -28,7 +31,7 @@
             background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
             font-family: 'Segoe UI', sans-serif;
             color: white;
-            overflow: hidden;
+            overflow: hidden; 
             /* use overflow-y instead of overflow Allow other interactions */
         }
 
@@ -320,7 +323,10 @@
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 10px;
             padding: 1.5rem;
+            
             width: 250px;
+            /* max-width: 300px; */
+
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
@@ -360,18 +366,43 @@
             z-index: 1000;
         }
 
-        /* first service */
+
+        /* Overlay buttons for sections cover whole page */
         .overlay-button {
-            position: absolute;
-            bottom: 150px;
-            right: 50px;
+            position: fixed; /* full-screen coverage */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             z-index: 10;
-            background-color: #0f0f0f;
+            background: transparent;
             color: #0ff;
-            padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            display: flex; /* helps position text inside */
+
+            /* disable click on the full area */
+            pointer-events: none;
+        }
+
+
+        /* Inner clickable text */
+        .overlay-button span {
+            pointer-events: auto; /* make only the text clickable */
+            display: inline-block; /* give it a proper area */
+            cursor: pointer; 
+            padding: 12px 24px; /* size of clickable area */
+            background-color: transparent;
+        }
+
+
+        /* first service */
+        .overlay-button.bottom-right {
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 0 50px 150px 0;
+            background-color: transparent;
 
             /* Enhanced glow effect */
             text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
@@ -381,16 +412,10 @@
 
         /* second service & fourth service */
         .overlay-button.centered {
-            position: absolute;
-            bottom: 450px;
-            right: 50px;
-            z-index: 10;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 0 50px 450px 0;
             background-color: transparent;
-            color: #0ff;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
 
             /* Enhanced glow effect */
             text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
@@ -400,16 +425,10 @@
 
         /* third service */
         .overlay-button.bottom-left {
-            position: absolute;
-            bottom: 150px;
-            left: 50px;
-            z-index: 10;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 0 0 200px 50px;
             background-color: transparent;
-            color: #0ff;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
 
             /* Enhanced glow effect */
             text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
@@ -429,6 +448,71 @@
       transition: width 0.2s ease;
     }s
     */
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2.2rem !important;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .service-card {
+                width: 100%;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            .services {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .overlay-button.bottom-right,
+            .overlay-button.centered,
+            .overlay-button.bottom-left {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                display: inline-block;
+                margin: 1rem auto;
+                text-align: center;
+            }
+
+            object {
+                height: 80vh;
+            }
+
+            .content {
+                top: 30%;
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .service-icon {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                top: 25%;
+            }
+        }
     </style>
 </head>
 
@@ -537,27 +621,37 @@
     <!-- Spacer -->
     <div class="spacer"></div>
 
+
+    <!-- Overlay button on business page, to avoid needing React -->
     <!-- BLOCKCHAIN Section -->
     <section id="blockchain">
-        <a href="#business" class="overlay-button">⬅ Back to Menu</a>
+        <a href="#business" class="overlay-button bottom-right">
+            <span>⬅ Back to Menu</span>
+        </a>
         <object type="text/html" data="blockchain.html" width="100%" height="100%"></object>
     </section>
 
     <!-- CLOUD Section -->
     <section id="cloud">
-        <a href="#business" class="overlay-button centered">⬅ Back to Menu</a>
+        <a href="#business" class="overlay-button centered">
+            <span>⬅ Back to Menu</span>
+        </a>
         <object type="text/html" data="cloudinfra.html" width="100%" height="100%"></object>
     </section>
 
     <!-- SECURITY Section -->
     <section id="security">
-        <a href="#business" class="overlay-button bottom-left">⬅ Back to Menu</a>
+        <a href="#business" class="overlay-button bottom-left">
+            <span>⬅ Back to Menu</span>
+        </a>
         <object type="text/html" data="security.html" width="100%" height="100%"></object>
     </section>
 
     <!-- REPAIR Section -->
     <section id="repair">
-        <a href="#business" class="overlay-button centered">⬅ Back to Menu</a>
+        <a href="#business" class="overlay-button centered">
+            <span>⬅ Back to Menu</span>
+        </a>
         <object type="text/html" data="repair.html" width="100%" height="100%"></object>
     </section>
 
