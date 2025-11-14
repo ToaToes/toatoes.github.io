@@ -12,12 +12,13 @@
       box-sizing: border-box;
     }
 
-    body {
+    body, html {
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: white;
       font-family: 'Segoe UI', sans-serif;
       height: 100vh;
       overflow: hidden;
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -111,5 +112,19 @@
       <p>Whether you're building a DeFi platform, supply chain tracker, or NFT marketplace, we deliver tailored solutions built for transparency and trust.</p>
       <!-- <a href="#service">⬅ Back to Menu</a> -->
     </div>
+
+  // Add scroll function
+  <script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      // Detect a fast upward scroll near the top of the page
+      if (currentScroll < 50 && lastScrollTop > currentScroll) {
+        history.back();
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+  </script>
+    
 </body>
 </html>
