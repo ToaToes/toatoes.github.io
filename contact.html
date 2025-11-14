@@ -13,6 +13,7 @@
       color: #fff;
       height: 100%;
       overflow: hidden; /* Prevent scrolling */
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -214,6 +215,19 @@
   <footer>
     &copy; 2025 BitHouse Technical Services Inc. All rights reserved.
   </footer>
+
+  // Add scroll function
+  <script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      // Detect a fast upward scroll near the top of the page
+      if (currentScroll < 50 && lastScrollTop > currentScroll) {
+        history.back();
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+  </script>
   
 </body>
 </html>
