@@ -16,6 +16,7 @@
       color: white;
       font-family: 'Segoe UI', sans-serif;
       height: 100%;
+      scroll-behavior: smooth;
     }
 
     .container {
@@ -114,9 +115,22 @@
       <p>We provide robust, scalable cloud architecture for businesses of all sizes — from startups to enterprises. Our services include cloud migration, DevOps pipelines, containerization (Docker/Kubernetes), and managed cloud hosting.</p>
       <p>Optimize performance, reduce cost, and scale with confidence — powered by AWS, Azure, or GCP.</p>
       <!-- <a href="index.html">⬅ Back to Home</a> -->
-    </div>
-    <div class="image-side">
+  </div>
+  <div class="image-side">
         <img src="cloud.png" alt="Cloud Infrastructure">
-    </div>
+  </div>
+
+  // Add scroll function
+  <script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function() {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      // Detect a fast upward scroll near the top of the page
+      if (currentScroll < 50 && lastScrollTop > currentScroll) {
+        history.back();
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+  </script>
 </body>
 </html>
