@@ -370,26 +370,33 @@
         /* Overlay buttons for sections cover whole page */
         .overlay-button {
             position: fixed; /* full-screen coverage */
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 10;
+            top: 20px;
+            left: 20px;
+            width: auto;
+            height: auto;
+            z-index: 1000;
             background: transparent;
             color: #0ff;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            display: flex; /* helps position text inside */
+            display: inline-flex; /* helps position text inside */
+            cursor: default; /* normal cursor by default */
+
+            /* Enhanced glow effect */
+            text-shadow:
+                0 0 8px rgba(0, 255, 255, 0.3),
+                0 0 16px rgba(0, 255, 255, 0.2),
+                0 0 24px rgba(0, 255, 255, 0.1);
 
             /* disable click on the full area */
-            pointer-events: none;
+            /*pointer-events: auto;*/
         }
 
 
         /* Inner clickable text */
         .overlay-button span {
-            pointer-events: auto; /* make only the text clickable */
+            /*pointer-events: auto; /* make only the text clickable */
             display: inline-block; /* give it a proper area */
             cursor: pointer; 
             padding: 12px 24px; /* size of clickable area */
@@ -399,42 +406,43 @@
 
         /* first service */
         .overlay-button.bottom-right {
+            position: fixed;        /* stays relative to viewport */
+            bottom: 5%;             /* distance from bottom (responsive) */
+            right: 5%;              /* distance from right (responsive) */
+            display: flex;
             justify-content: flex-end;
             align-items: flex-end;
-            padding: 0 50px 150px 0;
+            padding: 1rem 2rem;     /* responsive padding */
             background-color: transparent;
 
-            /* Enhanced glow effect */
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
-                0 0 16px rgba(0, 255, 255, 0.2),
-                0 0 24px rgba(0, 255, 255, 0.1);
-        }
+         }
 
         /* second service & fourth service */
         .overlay-button.centered {
+            position: fixed;        /* stays relative to viewport */
+            bottom: 5%;             /* distance from bottom (responsive) */
+            right: 5%;              /* distance from right (responsive) */
+            display: flex;
             justify-content: flex-end;
             align-items: flex-end;
-            padding: 0 50px 450px 0;
+            padding: 1rem 2rem;     /* responsive padding */
             background-color: transparent;
 
-            /* Enhanced glow effect */
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
-                0 0 16px rgba(0, 255, 255, 0.2),
-                0 0 24px rgba(0, 255, 255, 0.1);
         }
 
         /* third service */
         .overlay-button.bottom-left {
-            justify-content: flex-start;
+            position: fixed;        /* stays relative to viewport */
+            bottom: 5%;             /* distance from bottom (responsive) */
+            right: 5%;              /* distance from right (responsive) */
+            display: flex;
+            justify-content: flex-end;
             align-items: flex-end;
-            padding: 0 0 130px 50px;
+            padding: 1rem 2rem;     /* responsive padding */
             background-color: transparent;
 
-            /* Enhanced glow effect */
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3),
-                0 0 16px rgba(0, 255, 255, 0.2),
-                0 0 24px rgba(0, 255, 255, 0.1);
         }
+
 
         .overlay-button:hover {
             background-color: transparent;
@@ -775,7 +783,7 @@
                 });
             });
 
-            // ✅ NEW: Handle back link and other #hash anchors
+            // NEW: Handle back link and other #hash anchors
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const hash = this.getAttribute('href');
@@ -809,6 +817,23 @@
             if (isReload) {
                 window.location.href = 'index.html'; // Replace with your homepage
             }
+        });
+
+    </script>
+
+    <script>
+        document.querySelectorAll('.overlay-button').forEach(button => {
+            button.addEventListener('click', e => {
+                const spanClicked = e.target.closest('span');
+                if (!spanClicked || !button.contains(spanClicked)) {
+                    // Click is outside the allowed span
+                    e.preventDefault();  // stop default action (like link or form submit)
+                    e.stopImmediatePropagation(); // stop all other listeners
+                    console.log('Click blocked');
+                    return false; // extra safeguard
+                }
+                console.log('Span clicked');
+            });
         });
 
     </script>
