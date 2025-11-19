@@ -32,6 +32,7 @@
             font-family: 'Segoe UI', sans-serif;
             color: white;
             overflow: hidden; 
+            pointer-events: auto /* block the website to public first */
             /* use overflow-y instead of overflow Allow other interactions */
         }
 
@@ -47,7 +48,7 @@
             z-index: 2;
             overflow: visible;
             /* ← Prevents hero's visual effects from spilling over */
-            pointer-events: auto /* block the website to public first */
+            
         }
 
         #business {
