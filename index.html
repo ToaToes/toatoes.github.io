@@ -26,6 +26,8 @@
         html {
             scroll-behavior: smooth;
             background-color: #0f0f0f;
+            overflow-y: scroll;
+            overscroll-behavior: none;
             /* avoid scroll causing white flash */
         }
 
@@ -36,6 +38,9 @@
             color: white;
             overflow: hidden; 
             /* use overflow-y instead of overflow Allow other interactions */
+            /* Prevent the “scroll freeze” bug on iPhones */
+            -webkit-overflow-scrolling: touch;
+            touch-action: none; /* Your JS takes over scroll */
         }
 
         /* sections (hero and business intro) */
