@@ -46,27 +46,23 @@
 
         /* sections (hero and business intro) */
         section {
+            position: fixed;
+            inset: 0;
             height: 100vh;
             width: 100%;
-            position: relative;
-            transition: opacity 1s ease, transform 1s ease;
-
-            display: none;
             opacity: 0;
             pointer-events: none;
             transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
         }
+
 
         section.visible {
-            display: flex;          /* make section visible */
-            flex-direction: column; /* stack children vertically */
-            justify-content: center;
-            align-items: center;
             opacity: 1;
-            pointer-events: auto;   /* allow clicks */
+            pointer-events: auto;
             transform: translateY(0);
+            z-index: 10;
         }
-
 
 
         .section-content {
@@ -79,7 +75,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            pointer-events: none; /* prevent inner HTML from hijacking scroll */
+            pointer-events: auto; /* prevent inner HTML from hijacking scroll */
         }
 
 
@@ -117,16 +113,6 @@
       border: none !important;
     }
     */
-
-        /* Show business section when .visible class is added */
-        #business.visible {
-            opacity: 1;
-            transform: translateY(0);
-            z-index: 0;
-            /* Ensure it is below the service cards */
-            pointer-events: none;
-            /* Prevent it from blocking clicks */
-        }
 
         #repair,
         #maintenance,
