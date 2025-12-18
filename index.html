@@ -52,8 +52,10 @@
             width: 100%;
             opacity: 0;
             pointer-events: none;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
+            transform: translateY(20px);
+            transition:
+                opacity 0.35s ease-out,
+                transform 0.35s ease-out;
             z-index: 0;
         }
 
@@ -685,7 +687,7 @@
         let wheelLocked = false;
         
         const WHEEL_THRESHOLD = 120;   // tune this
-        const WHEEL_LOCK_TIME = 900;   // must match animation duration
+        const WHEEL_LOCK_TIME = 400;   // must match animation duration
 
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -712,7 +714,7 @@
                 target.classList.add('visible');
             
                 // Animate opacity & transform only (no native scrolling)
-                setTimeout(()=>{ isScrolling=false; }, 900);
+                setTimeout(()=>{ isScrolling=false; }, 400);
             }
 
 
