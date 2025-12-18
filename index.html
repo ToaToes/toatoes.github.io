@@ -553,6 +553,20 @@
                 top: 25%;
             }
         }
+
+
+        .company-intro {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 700px;
+            margin-top: 20px;
+        }
+        
+        .company-intro span {
+            display: block;
+            margin-bottom: 12px; /* space between lines */
+        }
+
     </style>
 </head>
 
@@ -597,11 +611,13 @@
       text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
                    0 0 16px rgba(0, 255, 255, 0.2),
                    0 0 24px rgba(0, 255, 255, 0.1);">Welcome to BitHouse</h2>
-            <p style="font-size: 1.2rem; color: #ccc; max-width: 700px; margin-top: 20px;">
-                Headquartered in Calgary, Alberta<br>
-                — Canada’s energy capital — <br>
-                Bithouse focuses on the execution and operation of “energy + compute” mining infrastructure.
+            
+            <p class="company-intro">
+                <span>Headquartered in Calgary, Alberta</span>
+                <span>— Canada’s Energy Capital —</span>
+                <span>Bithouse focuses on the execution and operation of “ENERGY + COMPUTE” mining infrastructure.</span>
             </p>
+
             <div class="services">
                 <a class="service-link" data-target="maintenance">
                     <div class="service-card">
