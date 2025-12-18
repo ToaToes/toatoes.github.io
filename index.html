@@ -58,11 +58,15 @@
         }
 
         section.visible {
-            display: flex;             /* show it as flex container */
+            display: flex;          /* make section visible */
+            flex-direction: column; /* stack children vertically */
+            justify-content: center;
+            align-items: center;
             opacity: 1;
-            pointer-events: auto;      /* enable clicks */
+            pointer-events: auto;   /* allow clicks */
             transform: translateY(0);
         }
+
 
 
         .section-content {
@@ -85,6 +89,17 @@
             /* ← Prevents hero's visual effects from spilling over */
             
         }
+
+        #hero.visible {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;  /* vertical center */
+            align-items: center;      /* horizontal center */
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
 
         #business {
             background-color: #0f0f0f;
@@ -272,7 +287,6 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            top: 40%;
         }
 
         h1 {
