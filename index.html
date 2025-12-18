@@ -54,6 +54,7 @@
             pointer-events: none;
             transform: translateY(50px);
             transition: opacity 1s ease, transform 1s ease;
+            z-index: 0;
         }
 
 
@@ -86,27 +87,13 @@
             
         }
 
-        #hero.visible {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;  /* vertical center */
-            align-items: center;      /* horizontal center */
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-
+        #hero,
         #business {
-            background-color: #0f0f0f;
-            opacity: 0;
-            transform: translateY(50px);
-            z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 1s ease, transform 1s ease;
         }
+
 
         /* Remove the border from your business content div 
     #business > div {
