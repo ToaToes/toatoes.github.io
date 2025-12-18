@@ -685,9 +685,10 @@
 
         let wheelDelta = 0;
         let wheelLocked = false;
+        let wheelUnlockTimer = null;
         
-        const WHEEL_THRESHOLD = 120;   // tune this
-        const WHEEL_LOCK_TIME = 400;   // must match animation duration
+        const WHEEL_THRESHOLD = 100;   // tune this
+        const WHEEL_LOCK_TIME = 180;   // must match animation duration
 
         
         document.addEventListener('DOMContentLoaded', function() {
@@ -720,39 +721,54 @@
 
             // Mouse wheel / trackpad
             window.addEventListener('wheel', e => {
-            
-                // Ignore horizontal trackpad gestures
+
+                // Ignore horizontal gestures
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
             
-                if (wheelLocked) {
-                    e.preventDefault();
-                    return;
-                }
+                e.preventDefault();
             
+                // Accumulate delta (gesture intent)
                 wheelDelta += e.deltaY;
             
-                if (Math.abs(wheelDelta) < WHEEL_THRESHOLD) {
-                    e.preventDefault();
+                // Reset unlock timer on EVERY wheel event
+                if (wheelUnlockTimer) clearTimeout(wheelUnlockTimer);
+            
+                // If already locked, just wait for inertia to stop
+                if (wheelLocked) {
+                    wheelUnlockTimer = setTimeout(() => {
+                        wheelLocked = false;
+                        wheelDelta = 0;
+                    }, WHEEL_IDLE_TIME);
                     return;
                 }
             
+                // Not enough intent yet
+                if (Math.abs(wheelDelta) < WHEEL_THRESHOLD) {
+                    wheelUnlockTimer = setTimeout(() => {
+                        wheelDelta = 0;
+                    }, WHEEL_IDLE_TIME);
+                    return;
+                }
+            
+                // LOCK for this gesture
                 wheelLocked = true;
             
                 if (wheelDelta > 0 && currentSectionIndex < sections.length - 1) {
                     scrollToSection(currentSectionIndex + 1);
-                } 
+                }
                 else if (wheelDelta < 0 && currentSectionIndex > 0) {
                     scrollToSection(currentSectionIndex - 1);
                 }
             
+                // Reset delta, wait for inertia to fully stop
                 wheelDelta = 0;
             
-                setTimeout(() => {
+                wheelUnlockTimer = setTimeout(() => {
                     wheelLocked = false;
-                }, WHEEL_LOCK_TIME);
+                }, WHEEL_IDLE_TIME);
             
-                e.preventDefault();
             }, { passive: false });
+
 
 
             
