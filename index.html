@@ -430,19 +430,19 @@
 
         /* second service & fourth service */
         .overlay-button.centered {
-            position: fixed;        /* stays relative to viewport */
-            bottom: 5%;             /* distance from bottom (responsive) */
-            right: 5%;              /* distance from right (responsive) */
+            position: fixed;
+            top: 75%;                 /* 75% down the screen */
+            right: 10%;               /* slightly left */
+        
+            transform: translateY(-50%);
             display: flex;
-
-            /* position*/
             justify-content: flex-end;
             align-items: center;
-
-            padding: 1rem 2rem;     /* responsive padding */
+        
+            padding: 1rem 2rem;
             background-color: transparent;
-
         }
+
 
         /* third service */
         .overlay-button.bottom-left {
