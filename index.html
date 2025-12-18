@@ -49,7 +49,16 @@
             width: 100%;
             position: relative;
             transition: opacity 1s ease, transform 1s ease;
+            overflow: hidden; /* don't let content overflow the section */
         }
+
+        .section-content {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            pointer-events: auto; /* allow interaction */
+        }
+
 
         #hero {
             z-index: 2;
@@ -541,31 +550,7 @@
     </style>
 </head>
 
-<!-- WRONG -->
-<!-- Javascript to handle scroll-triggered transition 
-
-<script>
-  window.addEventListener('scroll', () => {
-    const businessSection = document.getElementById('business');
-    const scrollY = window.scrollY || window.pageYOffset;
-
-    if (scrollY > heroHeight * 0.7) { // Trigger when 70% of hero is scrolled
-      businessSection.classList.add('visible');
-    } else {
-      businessSection.classList.remove('visible');
-    }
-  });
-</script>
-
--->
-
 <body>
-
-    <!-- Progress Bar (hidden for now) 
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-    -->
 
     <!-- First part intro -->
     <section id="hero">
@@ -651,38 +636,40 @@
     <!-- Overlay button on business page, to avoid needing React -->
     <!-- Maintenance Section -->
     <section id="maintenance">
-        <a href="#business" class="overlay-button bottom-right">
-            <span>⬅ Back to Menu</span>
-        </a>
-        <object type="text/html" data="maintenance.html" width="100%" height="100%"></object>
+        <a href="#business" class="overlay-button bottom-right"><span>⬅ Back to Menu</span></a>
+        <div class="section-content">
+            <object type="text/html" data="maintenance.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
     </section>
 
     <!-- CLOUD Section -->
     <section id="cloud">
-        <a href="#business" class="overlay-button centered">
-            <span>⬅ Back to Menu</span>
-        </a>
-        <object type="text/html" data="cloudinfra.html" width="100%" height="100%"></object>
+        <a href="#business" class="overlay-button centered"><span>⬅ Back to Menu</span></a>
+        <div class="section-content">
+            <object type="text/html" data="cloudinfra.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
     </section>
 
     <!-- SECURITY Section -->
     <section id="security">
-        <a href="#business" class="overlay-button bottom-left">
-            <span>⬅ Back to Menu</span>
-        </a>
-        <object type="text/html" data="security.html" width="100%" height="100%"></object>
+        <a href="#business" class="overlay-button bottom-left"><span>⬅ Back to Menu</span></a>
+        <div class="section-content">
+            <object type="text/html" data="security.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
     </section>
 
     <!-- REPAIR Section -->
     <section id="repair">
-        <a href="#business" class="overlay-button centered">
-            <span>⬅ Back to Menu</span>
-        </a>
-        <object type="text/html" data="repair.html" width="100%" height="100%"></object>
+        <a href="#business" class="overlay-button centered"><span>⬅ Back to Menu</span></a>
+        <div class="section-content">
+            <object type="text/html" data="repair.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
     </section>
 
-    <section id="contact">
-        <object type="text/html" data="contact.html" width="100%" height="100%"></object>
+     <section id="contact">
+        <div class="section-content">
+            <object type="text/html" data="contact.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
     </section>
 
     <!-- JS: Smooth Section Scroll -->
@@ -707,8 +694,12 @@
                 const target=sections[index];
                 sections.forEach(sec=>sec.classList.remove('visible'));
                 target.classList.add('visible');
-                window.scrollTo({top:target.offsetTop, behavior:'smooth'});
-                setTimeout(()=>{isScrolling=false; window.scrollTo({top:target.offsetTop, behavior:'auto'});},900);
+            
+                // Scroll smoothly to the section
+                target.scrollIntoView({behavior:'smooth', block:'start'});
+            
+                // Lock scrolling until animation completes
+                setTimeout(()=>{isScrolling=false;},900);
             }
 
             // Mouse wheel / trackpad
