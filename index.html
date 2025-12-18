@@ -685,6 +685,8 @@
 
         let wheelDelta = 0;
         let wheelLocked = false;
+        let momentumTimeout = null;
+
         
         const WHEEL_THRESHOLD = 120;   // tune this
         const WHEEL_LOCK_TIME = 400;   // must match animation duration
@@ -720,10 +722,11 @@
 
             // Mouse wheel / trackpad
             window.addEventListener('wheel', e => {
-            
-                // Ignore horizontal trackpad gestures
+
+                // Ignore horizontal gestures
                 if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
             
+                // Fully block wheel during lock
                 if (wheelLocked) {
                     e.preventDefault();
                     return;
@@ -731,11 +734,13 @@
             
                 wheelDelta += e.deltaY;
             
+                // Not enough movement yet
                 if (Math.abs(wheelDelta) < WHEEL_THRESHOLD) {
                     e.preventDefault();
                     return;
                 }
             
+                // LOCK IMMEDIATELY
                 wheelLocked = true;
             
                 if (wheelDelta > 0 && currentSectionIndex < sections.length - 1) {
@@ -745,14 +750,19 @@
                     scrollToSection(currentSectionIndex - 1);
                 }
             
+                // CRITICAL: kill inertia
                 wheelDelta = 0;
             
-                setTimeout(() => {
+                clearTimeout(momentumTimeout);
+            
+                momentumTimeout = setTimeout(() => {
                     wheelLocked = false;
-                }, WHEEL_LOCK_TIME);
+                }, WHEEL_LOCK_TIME + 100); // small buffer kills trackpad momentum
             
                 e.preventDefault();
+            
             }, { passive: false });
+
 
 
             
