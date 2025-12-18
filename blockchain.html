@@ -1,130 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Blockchain Services - BitHouse</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Optional: external CSS -->
-  <style>
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<title>Mining Maintenance - BitHouse</title>
 
-    body, html {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      scroll-behavior: smooth;
-    }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .container {
-      display: flex;
-      height: 100vh;
-    }
+body, html {
+  height: 100vh;
+  background: radial-gradient(circle at top, #141414, #080808);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .image-side {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #111;
-    }
+.container {
+  display: flex;
+  height: 100vh;
+}
 
-    .image-side img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.image-side {
+  flex: 1;
+}
 
-    .text-side {
-      flex: 1;
-      padding: 4rem;
-      display: flex;
-      flex-direction: column; /* Stack content vertically */
-      justify-content: center;
-      background-color: #111;
-      text-align: right; /* Right-align text */
-    }
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    /*
-    a {
-      color: #0ff;
-      text-decoration: none;
-      margin-top: 3rem; /* Space from content 
-      display: inline-block;
-      font-size: 1.05rem; /* Adjust link size 
+.text-side {
+  flex: 1;
+  padding: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8rem; /* move content upward */
+}
 
-      /* Enhanced glow effect 
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
-    }
-    */
+/* HEADLINE */
+h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #0ff;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.45),
+    0 0 25px rgba(0,255,255,0.25);
+  margin-bottom: 1rem;
+}
 
-    h1 {
-      color: #0ff;
-      margin-bottom: 1.5rem;
-      font-size: 6rem; /* Larger, prominent heading */
-    }
+/* SUBLINE */
+.subtitle {
+  font-size: 1.15rem;
+  color: #ccc;
+  font-weight: 300;
+  max-width: 480px;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.45),
+    0 0 25px rgba(0,255,255,0.25);
+  margin-bottom: 3.5rem;
+}
 
-    p {
-      color: #ccc;
-      line-height: 1.9;  /* Slightly increased for better readability */
-      margin-bottom: 1.8rem;
-      font-size: 1.15rem; /* Adjusted paragraph size */
-      letter-spacing: 0.3px;      /* Slightly improved letter spacing */
-      font-weight: 300;           /* Lighter font weight for a smoother look */
+/* STATS */
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
 
-      /* Enhanced glow effect */
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
-    }
+.stat h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
 
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .content img {
-      max-width: 40%;
-      height: 100%;
-      margin-right: 2rem;
-    }
-    .content .text {
-      max-width: 55%;
-      text-align: left;
-    }
-  </style>
+.stat span {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: #777;
+  margin-top: 0.4rem;
+}
+
+/* CAPABILITIES */
+ul {
+  list-style: none;
+  max-width: 520px;
+}
+
+li {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  color: #ccc;
+  position: relative;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.45),
+    0 0 25px rgba(0,255,255,0.25);
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 70%;
+  background: #0ff;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="image-side">
-      <img src="miner.png" alt="Blockchain Image">
-    </div>
-    <div class="text-side">
-      <h1>Blockchain Services</h1>
-      <p>We develop and deploy secure, scalable blockchain applications that power decentralized ecosystems. Our services include smart contract development, token integration, and permissioned blockchain networks.</p>
-      <p>Whether you're building a DeFi platform, supply chain tracker, or NFT marketplace, we deliver tailored solutions built for transparency and trust.</p>
-      <!-- <a href="#service">⬅ Back to Menu</a> -->
+<div class="container">
+
+  <div class="image-side">
+    <img src="miner.png" alt="Bitcoin Mining Infrastructure Maintenance ">
+  </div>
+
+  <div class="text-side">
+
+    <h1>MINING MAINTENANCE</h1>
+
+    <div class="subtitle">
+      24/7 infrastructure hosting & operational control for large-scale Bitcoin mining
     </div>
 
+    <div class="stats">
+      <div class="stat">
+        <h2>130+ MW</h2>
+        <span>ACTIVE INFRASTRUCTURE</span>
+      </div>
+      <div class="stat">
+        <h2>20,000+</h2>
+        <span>MANAGED MINERS</span>
+      </div>
+      <div class="stat">
+        <h2>USA & CANADA</h2>
+        <span>MULTI-SITE OPS</span>
+      </div>
+    </div>
 
-  <script>
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function() {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      // Detect a fast upward scroll near the top of the page
-      if (currentScroll < 50 && lastScrollTop > currentScroll) {
-        history.back();
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false);
-  </script>
-    
+    <ul>
+      <li>24/7 Monitoring & Rapid Response</li>
+      <li>Extreme Climate Operations (–35°C to 40°C)</li>
+      <li>Miner Repair & Performance Optimization</li>
+      <li>Air-Cooled & Hydro-Cooled Systems</li>
+      <li>Electrical & Network Diagnostics</li>
+      <li>Preventive Maintenance Programs</li>
+    </ul>
+
+  </div>
+</div>
 </body>
 </html>
