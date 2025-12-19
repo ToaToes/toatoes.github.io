@@ -2,7 +2,7 @@
 .menu-container {
     position: fixed;
     top: 20px;
-    right: 30px;
+    left: 30px;
     z-index: 2000;
     font-family: 'Segoe UI', sans-serif;
 }
