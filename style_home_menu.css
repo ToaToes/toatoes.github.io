@@ -1,36 +1,13 @@
-/* MENU container */
-.menu-container {
-    position: fixed;
-    top: 20px;
-    left: 30px;
-    z-index: 2000;
-    font-family: 'Segoe UI', sans-serif;
-    background: transparent;
-    border: none;
-    padding: 0;
-}
-
-/* MENU button - text only */
-.menu-button {
-    color: #0ff;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    text-shadow: 0 0 5px rgba(0,255,255,0.5), 0 0 10px rgba(0,255,255,0.3);
-    background: none;
-    border: none;
-    padding: 0;
-}
-
 /* Dropdown */
 .menu-dropdown {
     list-style: none;
     margin-top: 8px;
     padding: 0;
-    background: rgba(0,0,0,0.85);
-    border: 1px solid rgba(0,255,255,0.25);
-    border-radius: 6px;
-    overflow: hidden;
+
+    /* remove box */
+    background: transparent;
+    border: none;
+    border-radius: 0;
 
     opacity: 0;
     transform: translateY(-8px);
@@ -51,9 +28,10 @@
     color: #ccc;
     cursor: pointer;
     white-space: nowrap;
+    text-shadow: 0 0 4px rgba(0,255,255,0.4), 0 0 8px rgba(0,255,255,0.2); /* optional glow */
 }
 
 .menu-dropdown li:hover {
-    background: rgba(0,255,255,0.15);
+    background: transparent; /* remove hover box */
     color: #0ff;
 }
