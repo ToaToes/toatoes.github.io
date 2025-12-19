@@ -821,20 +821,18 @@
             });
 
             // MENU navigation
+            // MENU navigation (FIXED)
             document.querySelectorAll('.menu-dropdown li').forEach(item => {
                 item.addEventListener('click', () => {
                     const targetId = item.dataset.target;
-                    const targetSection = document.getElementById(targetId);
-                    if(targetSection) {
-                        // Trigger your existing scrollToSection function
-                        const event = new Event('scrollToSection');
-                        targetSection.dispatchEvent(event);
+                    const targetIndex = sections.findIndex(sec => sec.id === targetId);
             
-                        // Or just scroll manually if needed
-                        document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
+                    if (targetIndex !== -1) {
+                        scrollToSection(targetIndex);
                     }
                 });
             });
+
 
 
         });
