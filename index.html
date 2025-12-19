@@ -748,6 +748,19 @@
                 setTimeout(()=>{ isScrolling=false; }, 900);
             }
 
+            
+            // MENU button → go to Business section
+            const menuButton = document.querySelector('.menu-button');
+            
+            menuButton.addEventListener('click', () => {
+                const businessIndex = sections.findIndex(sec => sec.id === 'business');
+            
+                if (businessIndex !== -1) {
+                    scrollToSection(businessIndex);
+                }
+            });
+
+
 
             // Mouse wheel / trackpad with inertia protection
             window.addEventListener('wheel', e => {
@@ -820,7 +833,6 @@
                 });
             });
 
-            // MENU navigation
             // MENU navigation (FIXED)
             document.querySelectorAll('.menu-dropdown li').forEach(item => {
                 item.addEventListener('click', () => {
