@@ -575,6 +575,19 @@
 
 <body>
 
+    <!-- Global MENU -->
+    <div class="menu-container">
+        <div class="menu-button">☰ MENU</div>
+        <ul class="menu-dropdown">
+            <li data-target="maintenance">Maintenance</li>
+            <li data-target="repair">Repair</li>
+            <li data-target="cloud">Cloud Infrastructure</li>
+            <li data-target="security">Digital Security</li>
+            <li data-target="contact">Contact</li>
+        </ul>
+    </div>
+
+
     <!-- First part intro -->
     <section id="hero">
 
@@ -805,6 +818,18 @@
                     if(targetIndex!==-1){e.preventDefault(); scrollToSection(targetIndex);}
                 });
             });
+
+            // MENU navigation
+            document.querySelectorAll('.menu-dropdown li').forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.dataset.target;
+                    const targetIndex = sections.findIndex(sec => sec.id === targetId);
+                    if (targetIndex !== -1) {
+                        scrollToSection(targetIndex);
+                    }
+                });
+            });
+
         });
         
     </script>
