@@ -968,23 +968,37 @@
             });
 
 
-            // Background pic switch by hover
+
+            // Auto-rotating business background images
             const businessBg = document.querySelector('#business .business-bg');
-            const serviceLinks = document.querySelectorAll('#business .service-link');
             
             if (businessBg) {
-                businessBg.style.backgroundImage = 'url("images/default-business.jpg")';
+                const images = [
+                    'images/maintenance_example.png',
+                    'images/repair_example.png',
+                    'images/solutions_example.png',
+                    'images/about_example.png'
+                ];
             
-                serviceLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        const bg = link.getAttribute('data-bg');
-                        if (bg) {
-                            businessBg.style.backgroundImage = `url(${bg})`;
-                            businessBg.style.opacity = '0.4';
-                        }
-                    });
-                });
+                let index = 0;
+            
+                // Initial image
+                businessBg.style.backgroundImage = `url(${images[index]})`;
+                businessBg.style.opacity = '0.4';
+            
+                setInterval(() => {
+                    index = (index + 1) % images.length;
+            
+                    // fade out
+                    businessBg.style.opacity = '0';
+            
+                    setTimeout(() => {
+                        businessBg.style.backgroundImage = `url(${images[index]})`;
+                        businessBg.style.opacity = '0.4';
+                    }, 400); // must match CSS transition
+                }, 4000); // change every 4 seconds
             }
+
 
 
 
