@@ -80,6 +80,76 @@
             pointer-events: auto; /* prevent inner HTML from hijacking scroll */
         }
 
+        /* HERO SPLIT LAYOUT */
+        .hero-split {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+          text-align: left;
+        }
+        
+        /* LOGO */
+        .hero-logo img {
+          width: 260px;
+          filter: drop-shadow(0 0 14px rgba(0,255,255,0.6));
+        }
+        
+        /* DIVIDER */
+        .hero-divider {
+          font-size: 3rem;
+          color: rgba(0, 255, 255, 0.6);
+          text-shadow:
+            0 0 10px rgba(0,255,255,0.4),
+            0 0 20px rgba(0,255,255,0.2);
+        }
+        
+        /* SLOGAN */
+        .hero-slogan {
+          max-width: 720px;
+          font-size: 2.1rem;
+          line-height: 1.4;
+          color: #ccc;
+          text-shadow:
+            0 0 8px rgba(0,255,255,0.3),
+            0 0 16px rgba(0,255,255,0.2),
+            0 0 24px rgba(0,255,255,0.1);
+        }
+        
+        .hero-slogan span {
+          display: block;
+        }
+        
+        /* EMPHASIS */
+        .hero-slogan span:first-child {
+          font-size: 2.4rem;
+          color: #fff;
+        }
+        
+        /* RESPONSIVE: STACK ON MOBILE */
+        @media (max-width: 768px) {
+          .hero-split {
+            flex-direction: column;
+            text-align: center;
+          }
+        
+          .hero-divider {
+            display: none;
+          }
+        
+          .hero-slogan {
+            font-size: 1.4rem;
+          }
+        
+          .hero-slogan span:first-child {
+            font-size: 1.6rem;
+          }
+        }
+
+        
+
 
         #hero {
             z-index: 2;
@@ -96,11 +166,6 @@
         }
 
 
-        /* Remove the border from your business content div 
-    #business > div {
-      border: none !important;
-    }
-    */
 
         #repair,
         #maintenance,
@@ -608,34 +673,24 @@
         </div>
 
         <!-- Fade-in Content -->
-        <div class="content fade-in delay-2">
-            <!-- LOGO -->
-            <img 
-                src="logo.png" 
-                alt="BitHouse Logo"
-                style="
-                  width: 260px;
-                  margin-bottom: 30px;
-                  filter: drop-shadow(0 0 12px rgba(0,255,255,0.6));
-                "
-            >
+        <div class="hero-split fade-in delay-2">
+
+            <!-- LEFT: LOGO -->
+            <div class="hero-logo">
+                <img src="logo.png" alt="BitHouse Logo">
+            </div>
         
-            <!-- TAGLINE -->
-            <p style="
-                font-size: 1.4rem;
-                color: #ccc;
-                max-width: 720px;
-                margin: 0 auto;
-                line-height: 1.7;
-                text-shadow:
-                  0 0 8px rgba(0,255,255,0.3),
-                  0 0 16px rgba(0,255,255,0.2),
-                  0 0 24px rgba(0,255,255,0.1);
-            ">
-                From Crypto Mining to AIDC <br> 
-                Your Trusted Integrated Solutions &amp; Operations Provider
-            </p>
+            <!-- DIVIDER -->
+            <div class="hero-divider">|</div>
+        
+            <!-- RIGHT: SLOGAN -->
+            <div class="hero-slogan">
+                <span>From Crypto Mining to AIDC</span>
+                <span>Your Trusted Integrated Solutions &amp; Operations Provider</span>
+            </div>
+        
         </div>
+
 
         <!-- visible scroll indicator. 
         <a href="#business" class="scroll-indicator">↓</a>
