@@ -1,153 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Repair Services - BitHouse</title>
-  <style>
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<title>Repair Services | BitHouse</title>
 
-    body, html {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      height: 100%;
-      scroll-behavior: smooth;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .container {
-      position: relative;
-      flex-direction: column; /* stack vertically */
-      height: 100vh;
-      overflow: hidden;
-    }
+html, body {
+  height: 100%;
+  background: linear-gradient(135deg, #0b0b0b, #161616);
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
 
-    .image-side {
-      position: relative;
-      flex: 1;
-      background-color: #111;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-    }
+/* Layout */
+.container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 
-    .image-side img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      object-fit: cover;
-      opacity: 0.6; /* Optional: dim image for readability */
- 
-    }
+.image-side {
+  position: absolute;
+  inset: 0;
+}
 
-    .text-side {
-      position: absolute;
-      top: 0;
-      right: 0;
-      flex: 1;
-      padding: 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;;
-      height: 100%;
-      width: 100%;
-      align-items: flex-end;
-      text-align: right; /* Right-align text */
-      z-index: 2;
-    }
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
 
-    .text-side .text-block {
-      max-width: 600px;      /* Limit width for readability */
-      margin-top: 2rem;      /* Add spacing from heading */
-      line-height: 1.8;      /* Improve line spacing */
-      font-size: 1.15rem;
-      letter-spacing: 0.3px;
-      font-weight: 300;
-    }
+/* Content */
+.text-side {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
 
-    /*
-    a {
-      color: #0ff;
-      text-decoration: none;
-      margin-top: 3rem;
-      display: inline-block;
-      font-size: 1.05rem; /* Adjust link size 
+/* Headings */
+h1 {
+  font-size: 5.2rem;
+  color: #0ff;
+  margin-bottom: 1rem;
+}
 
-      /* Enhanced glow effect 
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
-    }
-    */
+.subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 3rem;
+}
 
-    h1 {
-      color: #0ff;
-      margin-bottom: 1.5rem;
-      font-size: 6rem; /* Larger, prominent heading */
-    }
+/* Service grid */
+.services {
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
 
-    p {
-      color: #ccc;
-      line-height: 1.9;  /* Slightly increased for better readability */
-      margin-bottom: 1.8rem;
-      font-size: 1.2rem; /* Adjusted paragraph size */
-      letter-spacing: 0.3px;      /* Slightly improved letter spacing */
-      font-weight: 300;           /* Lighter font weight for a smoother look */
+.service {
+  border-right: 3px solid #0ff;
+  padding-right: 1.2rem;
+}
 
-      /* Enhanced glow effect */
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
-    }
+.service h3 {
+  font-size: 1.25rem;
+  color: #0ff;
+  margin-bottom: 0.3rem;
+}
 
-    /*
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .content img {
-      max-width: 40%;
-      height: 100%;
-      margin-right: 2rem;
-    }
-    .content .text {
-      max-width: 55%;
-      text-align: left;
-    }
-      */
-  </style>
+.service p {
+  font-size: 1rem;
+  color: #bbb;
+  line-height: 1.6;
+}
+
+/* Footer line */
+.footer {
+  margin-top: auto;
+  font-size: 0.9rem;
+  color: #888;
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="text-side">
-      <h1>Repair & Maintenance</h1>
-      <p>We provide expert repair services for hardware and software — from desktops and servers to mobile devices. Services include diagnostics, component replacement, OS repair, and general tech troubleshooting.</p>
-      <p>Quick turnaround, professional service, and minimal downtime — so you can focus on what matters.</p>
-      <!-- <a href="index.html#business">⬅ Back to Menu</a> -->
-  </div>
+
+<div class="container">
+
   <div class="image-side">
-        <img src="repair.png" alt="Repair Service">
+    <img src="repair.png" alt="BitHouse Repair Center">
   </div>
 
+  <div class="text-side">
+    <h1>Repair & Maintenance</h1>
+    <div class="subtitle">
+      Canada’s Authorized Crypto Miner Service Center
+    </div>
 
-  <script>
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function() {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      // Detect a fast upward scroll near the top of the page
-      if (currentScroll < 50 && lastScrollTop > currentScroll) {
-        history.back();
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false);
-  </script>
+    <div class="services">
+      <div class="service">
+        <h3>OEM-Authorized Repair</h3>
+        <p>Whatsminer · Elphapex · Genuine factory components</p>
+      </div>
+
+      <div class="service">
+        <h3>Chip-Level Diagnostics</h3>
+        <p>ASIC fault detection · Signal-path analysis</p>
+      </div>
+
+      <div class="service">
+        <h3>Hashrate Recovery</h3>
+        <p>Low hashrate · Board detection · Performance tuning</p>
+      </div>
+
+      <div class="service">
+        <h3>Multi-Brand Coverage</h3>
+        <p>Antminer · Avalon · Iceriver · Hydro models</p>
+      </div>
+
+      <div class="service">
+        <h3>Fast & Transparent</h3>
+        <p>Digital reports · Local Canadian service</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      BitHouse — Protecting Every Terahash
+    </div>
+  </div>
+
+</div>
+
+<script>
+let lastScrollTop = 0;
+window.addEventListener("scroll", function() {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  if (currentScroll < 50 && lastScrollTop > currentScroll) {
+    history.back();
+  }
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+</script>
+
 </body>
 </html>
