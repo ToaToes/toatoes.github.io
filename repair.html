@@ -81,15 +81,18 @@ h1 {
 }
 
 .service h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1.15rem, 1.3vw, 1.4rem);
   color: #0ff;
   margin-bottom: 0.3rem;
 }
 
 .service p {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #bbb;
   line-height: 1.6;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.45),
+    0 0 25px rgba(0,255,255,0.25);
 }
 
 /* Footer line */
@@ -140,10 +143,6 @@ h1 {
         <h3>Fast & Transparent</h3>
         <p>Digital reports · Local Canadian service</p>
       </div>
-    </div>
-
-    <div class="footer">
-      BitHouse — Protecting Every Terahash
     </div>
   </div>
 
