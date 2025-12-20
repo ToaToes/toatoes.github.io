@@ -643,6 +643,13 @@
                         <p>24/7 Maintenance and Operational control for Large-scale Data Mining infrastructure</p>
                     </div>
                 </a>
+                <a class="service-link" data-target="repair">
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Repair</h3>
+                        <p>Fast, professional repairs to get you back online — low downtime, no hassle.</p>
+                    </div>
+                </a>
                 <a class="service-link" data-target="cloud">
                     <div class="service-card">
                         <div class="service-icon">☁️</div>
@@ -655,13 +662,6 @@
                         <div class="service-icon">🔒</div>
                         <h3>Digital Security</h3>
                         <p>Protecting your data with advanced encryption and security protocols.</p>
-                    </div>
-                </a>
-                <a class="service-link" data-target="repair">
-                    <div class="service-card">
-                        <div class="service-icon">🔧</div>
-                        <h3>Repair</h3>
-                        <p>Fast, professional repairs to get you back online — low downtime, no hassle.</p>
                     </div>
                 </a>
             </div>
@@ -681,6 +681,14 @@
         </div>
     </section>
 
+        <!-- REPAIR Section -->
+    <section id="repair">
+        <a href="#business" class="overlay-button bottom-right"><span>⬅ Back to Menu</span></a>
+        <div class="section-content">
+            <object type="text/html" data="repair.html" width="100%" height="100%" style="border:none;"></object>
+        </div>
+    </section>
+
     <!-- CLOUD Section -->
     <section id="cloud">
         <a href="#business" class="overlay-button bottom-right"><span>⬅ Back to Menu</span></a>
@@ -694,14 +702,6 @@
         <a href="#business" class="overlay-button bottom-left"><span>⬅ Back to Menu</span></a>
         <div class="section-content">
             <object type="text/html" data="security.html" width="100%" height="100%" style="border:none;"></object>
-        </div>
-    </section>
-
-    <!-- REPAIR Section -->
-    <section id="repair">
-        <a href="#business" class="overlay-button bottom-right"><span>⬅ Back to Menu</span></a>
-        <div class="section-content">
-            <object type="text/html" data="repair.html" width="100%" height="100%" style="border:none;"></object>
         </div>
     </section>
 
@@ -726,9 +726,9 @@
                 document.getElementById('hero'),
                 document.getElementById('business'),
                 document.getElementById('maintenance'),
+                document.getElementById('repair'),
                 document.getElementById('cloud'),
                 document.getElementById('security'),
-                document.getElementById('repair'),
                 document.getElementById('contact')
             ];
             if(sections.some(sec=>!sec)){console.error('Missing section'); return;}
