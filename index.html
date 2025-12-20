@@ -132,6 +132,39 @@
           font-size: 2rem;
           color: #fff;
         }
+
+
+        /* BUSINESS dynamic background */
+        #business {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .business-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.25; /* subtle, adjust as needed */
+            transition: background-image 0.4s ease, opacity 0.4s ease;
+            z-index: 0;
+        }
+        
+        /* Ensure content stays above background */
+        #business .business-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Optional: dark overlay for readability */
+        #business::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+
         
         /* RESPONSIVE: STACK ON MOBILE */
         @media (max-width: 768px) {
@@ -706,6 +739,8 @@
 
     <!-- Second section: Company Business -->
     <section id="business">
+
+        <div class="business-bg"></div>
         <!-- <div style="text-align: center; padding-top: 20vh;"> -->
         <div class="business-content">
             <h2 style="font-size: 4rem; color: #0ff;
@@ -720,28 +755,28 @@
             </p>
 
             <div class="services">
-                <a class="service-link" data-target="maintenance">
+                <a class="service-link" data-target="maintenance" data-bg="images/maintenance_example.png">
                     <div class="service-card">
                         <div class="service-icon">⛓️</div>
                         <h3>Maintenance</h3>
                         <p>24/7 Maintenance and Operational control for Large-scale Data Mining infrastructure</p>
                     </div>
                 </a>
-                <a class="service-link" data-target="repair">
+                <a class="service-link" data-target="repair" data-bg="images/repair_example.png>
                     <div class="service-card">
                         <div class="service-icon">🔧</div>
                         <h3>Repair Services</h3>
                         <p>Fast, professional repairs to get you back online — low downtime, no hassle.</p>
                     </div>
                 </a>
-                <a class="service-link" data-target="solutions">
+                <a class="service-link" data-target="solutions" data-bg="images/solutions_example.png>
                     <div class="service-card">
                         <div class="service-icon">☁️</div>
                         <h3>Natural Gas Solutions</h3>
                         <p>Advanced solutions for efficient and sustainable natural gas extraction.</p>
                     </div>
                 </a>
-                <a class="service-link" data-target="about">
+                <a class="service-link" data-target="about" data-bg="images/about_example.png>
                     <div class="service-card">
                         <div class="service-icon">🔒</div>
                         <h3>About US</h3>
@@ -928,6 +963,25 @@
                     }
                 });
             });
+
+
+            // Background pic switch by hover
+            const businessBg = document.querySelector('.business-bg');
+            const serviceLinks = document.querySelectorAll('#business .service-link');
+            
+            // Default background (optional)
+            businessBg.style.backgroundImage = 'url("images/default-business.jpg")';
+            
+            serviceLinks.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    const bg = link.dataset.bg;
+                    if (bg) {
+                        businessBg.style.backgroundImage = `url("${bg}")`;
+                        businessBg.style.opacity = '0.35';
+                    }
+                });
+            });
+
 
 
 
