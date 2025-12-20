@@ -49,7 +49,7 @@ html, body {
   text-align: right;
 }
 
-/* Headings */
+/* HEADLINE */
 h1 {
   font-size: 4.5rem;
   font-weight: 700;
@@ -61,45 +61,67 @@ h1 {
   margin-bottom: 1rem;
 }
 
+/* SUBLINE */
 .subtitle {
   font-size: 1.5rem;
   color: #ccc;
-  margin-bottom: 3rem;
+  font-weight: 300;
+  max-width: 520px;
+  text-shadow:
+    0 0 10px rgba(0,255,255,0.45),
+    0 0 25px rgba(0,255,255,0.25);
+  margin-bottom: 3.5rem;
 }
 
-/* Service grid */
-.services {
-  max-width: 600px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.4rem;
+/* STATS */
+.stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
 }
 
-.service {
-  border-right: 3px solid #0ff;
-  padding-right: 1.2rem;
+.stat h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
 }
 
-.service h3 {
+.stat span {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #777;
+  margin-top: 0.4rem;
+}
+
+/* CAPABILITIES */
+ul {
+  list-style: none;
+  max-width: 520px;
+}
+
+li {
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
   font-size: clamp(1.15rem, 1.3vw, 1.4rem);
-  color: #0ff;
-  margin-bottom: 0.3rem;
-}
-
-.service p {
-  font-size: 1.25rem;
-  color: #bbb;
-  line-height: 1.6;
+  color: #ccc;
+  position: relative;
   text-shadow:
     0 0 10px rgba(0,255,255,0.45),
     0 0 25px rgba(0,255,255,0.25);
 }
 
-/* Footer line */
-.footer {
-  margin-top: auto;
-  font-size: 0.9rem;
-  color: #888;
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 70%;
+  background: #0ff;
+  transform: translateY(-50%);
+  opacity: 0.6;
 }
 </style>
 </head>
@@ -109,7 +131,7 @@ h1 {
 <div class="container">
 
   <div class="image-side">
-    <img src="repair.png" alt="BitHouse Authorized Repair Center">
+    <img src="repair.png" alt="BitHouse Authorized Repair Facility">
   </div>
 
   <div class="text-side">
@@ -117,67 +139,36 @@ h1 {
     <h1>REPAIR SERVICES</h1>
 
     <div class="subtitle">
-      North America’s Official Authorized Crypto Miner Repair & Hashrate Service Center
+      North America’s Authorized Crypto Miner Repair & Hashrate Service Center
     </div>
 
-    <div class="services">
-
-      <div class="service">
-        <h3>Industrial-Scale Repair Operations</h3>
-        <p>
-          50,000+ hashboards serviced with a 98.7% successful repair rate.
-          Trusted by large-scale mining farms, hosting facilities, and institutional operators.
-        </p>
+    <!-- STATISTICS FIRST -->
+    <div class="stats">
+      <div class="stat">
+        <h2>98.7%</h2>
+        <span>SUCCESSFUL REPAIR RATE</span>
       </div>
-
-      <div class="service">
-        <h3>OEM-Authorized Factory Service</h3>
-        <p>
-          Officially authorized repair partner for Whatsminer and Elphapex.
-          All repairs follow OEM protocols using 100% genuine factory components,
-          preserving firmware integrity and warranty scope.
-        </p>
+      <div class="stat">
+        <h2>50,000+</h2>
+        <span>HASHBOARDS SERVICED</span>
       </div>
-
-      <div class="service">
-        <h3>Chip-Level ASIC Diagnostics</h3>
-        <p>
-          Proprietary automated diagnostic systems perform millisecond-level
-          ASIC fault detection, signal-path analysis, and voltage verification —
-          recovering failures others cannot.
-        </p>
+      <div class="stat">
+        <h2>&lt;72h</h2>
+        <span>AVG TURNAROUND</span>
       </div>
-
-      <div class="service">
-        <h3>Hashrate Recovery & Stability</h3>
-        <p>
-          Specialized solutions for low hashrate, unstable output,
-          and board-not-detected issues.
-          Average performance recovery exceeds 95% of factory-rated output.
-        </p>
-      </div>
-
-      <div class="service">
-        <h3>Fast, Local Canadian Turnaround</h3>
-        <p>
-          Average turnaround time under 72 hours.
-          Local Canadian service eliminates cross-border shipping delays,
-          customs risk, and extended downtime.
-        </p>
-      </div>
-
-      <div class="service">
-        <h3>Multi-Platform Coverage</h3>
-        <p>
-          Antminer S23 / S21 / S19 / T19 series, hydro-cooled models,
-          Avalon, Iceriver, and other high-performance mining hardware.
-        </p>
-      </div>
-
     </div>
+
+    <!-- REPAIR CAPABILITIES -->
+    <ul>
+      <li>OEM-Authorized Whatsminer & Elphapex Repair</li>
+      <li>Chip-Level ASIC Diagnostics & Recovery</li>
+      <li>Low Hashrate & Board Detection Failures</li>
+      <li>Antminer S23 / S21 / S19 / T19 + Hydro</li>
+      <li>Avalon, Iceriver & Multi-Brand Support</li>
+      <li>Digital Diagnostics & Repair Verification</li>
+    </ul>
 
   </div>
-
 </div>
 
 <script>
