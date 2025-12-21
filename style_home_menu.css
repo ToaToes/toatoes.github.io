@@ -9,7 +9,7 @@
 /* MENU button - text only */
 .menu-button {
     color: #0ff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     text-shadow: 0 0 5px rgba(0,255,255,0.5), 0 0 10px rgba(0,255,255,0.3);
@@ -38,6 +38,7 @@
 /* Dropdown items */
 .menu-dropdown li {
     padding: 6px 0;
+    font-size: 18px;
     color: #ccc;
     cursor: pointer;
     white-space: nowrap;
