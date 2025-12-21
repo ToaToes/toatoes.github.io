@@ -136,30 +136,37 @@
 
         /* BUSINESS dynamic background */
         #business {
-            position: fixed; /* or relative if not fullscreen */
+            position: fixed;
             inset: 0;
             overflow: hidden;
         }
         
+        /* background image layer */
         .business-bg {
             position: absolute;
             inset: 0;
             background-size: cover;
             background-position: center;
+            opacity: 0.35;
             z-index: 0;
+            transition: opacity 0.4s ease, background-image 0.4s ease;
         }
         
-        .business-overlay {
+        /* dark overlay */
+        #business .business-overlay {
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.55);
             z-index: 1;
         }
         
-        .business-content {
+        /* content above everything */
+        #business .business-content {
             position: relative;
             z-index: 2;
         }
+
+
         
         /* RESPONSIVE: STACK ON MOBILE */
         @media (max-width: 768px) {
@@ -316,6 +323,14 @@
                 opacity: 0;
             }
         }
+
+        /* Glowing pulse 
+       To Enhance pulse effect, 
+       1. Color intensity (make the center more bright) 
+       2. Size and opacity
+       3. Gradient spread (reduce transparency threshold)
+       4. Glow using box-shadow    
+    */
 
         .pulse-circle {
             position: absolute;
@@ -571,6 +586,14 @@
             background-color: transparent;
         }
 
+        /* hide progress bar for now
+    .progress-bar {
+      height: 100%;
+      background: #0ff;
+      width: 0%;
+      transition: width 0.2s ease;
+    }s
+    */
 
         @media (max-width: 768px) {
             h1 {
@@ -715,6 +738,11 @@
             </div>
         
         </div>
+
+
+        <!-- visible scroll indicator. 
+        <a href="#business" class="scroll-indicator">↓</a>
+        -->
 
     </section>
 
@@ -951,7 +979,7 @@
 
             // Auto-rotating business background images
             const businessBg = document.querySelector('#business .business-bg');
-
+            
             if (businessBg) {
                 const images = [
                     'maintenance_example.png',
@@ -962,42 +990,29 @@
             
                 let index = 0;
             
-                // Preload images
-                images.forEach(src => { const img = new Image(); img.src = src; });
-            
-                // Create two overlay divs for cross-fade
-                businessBg.innerHTML = '<div class="bg current"></div><div class="bg next"></div>';
-                const current = businessBg.querySelector('.current');
-                const next = businessBg.querySelector('.next');
-            
-                current.style.backgroundImage = `url(${images[index]})`;
-                current.style.opacity = '0.4';
+                // Initial image
+                businessBg.style.backgroundImage = `url(${images[index]})`;
+                businessBg.style.opacity = '0.4';
             
                 setInterval(() => {
                     index = (index + 1) % images.length;
             
-                    next.style.backgroundImage = `url(${images[index]})`;
-                    next.style.opacity = '0';
+                    // fade out
+                    businessBg.style.opacity = '0';
             
-                    // start fade
-                    next.style.transition = 'opacity 0.8s ease-in-out';
-                    current.style.transition = 'opacity 0.8s ease-in-out';
-                    next.style.opacity = '0.4';
-                    current.style.opacity = '0';
-            
-                    // after fade, swap roles
                     setTimeout(() => {
-                        const temp = current.style.backgroundImage;
-                        current.style.backgroundImage = next.style.backgroundImage;
-                        current.style.opacity = '0.4';
-                        next.style.opacity = '0';
-                    }, 800); // match transition duration
-                }, 4000);
+                        businessBg.style.backgroundImage = `url(${images[index]})`;
+                        businessBg.style.opacity = '0.4';
+                    }, 400); // must match CSS transition
+                }, 4000); // change every 4 seconds
             }
+
 
         });
         
     </script>
 
+
 </body>
+
 </html>
