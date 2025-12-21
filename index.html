@@ -676,6 +676,14 @@
             margin-bottom: 12px; /* space between lines */
         }
 
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: auto; /* allow interactions */
+        }
+
     </style>
 </head>
 
@@ -829,7 +837,7 @@
 
      <section id="contact">
         <div class="section-content">
-            <object type="text/html" data="contact.html" width="100%" height="100%" style="border:none;"></object>
+            <iframe src="contact.html" width="100%" height="100%" style="border:none;" frameborder="0"></iframe>
         </div>
     </section>
 
