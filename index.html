@@ -980,7 +980,7 @@
 
             // Auto-rotating business background images
             const businessBg = document.querySelector('#business .business-bg');
-            
+
             if (businessBg) {
                 const images = [
                     'maintenance_example.png',
@@ -989,25 +989,35 @@
                     'about_example.png'
                 ];
             
+                // Preload images for smoother transitions
+                const preloadedImages = [];
+                images.forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                    preloadedImages.push(img);
+                });
+            
                 let index = 0;
             
-                // Initial image
+                // Initial image with smoother transition
                 businessBg.style.backgroundImage = `url(${images[index]})`;
+                businessBg.style.transition = 'opacity 0.8s ease-in-out';
                 businessBg.style.opacity = '0.4';
             
                 setInterval(() => {
                     index = (index + 1) % images.length;
-            
-                    // fade out
+                    
+                    // Fade out
                     businessBg.style.opacity = '0';
-            
+                    
                     setTimeout(() => {
+                        // Change image and fade in
                         businessBg.style.backgroundImage = `url(${images[index]})`;
                         businessBg.style.opacity = '0.4';
-                    }, 400); // must match CSS transition
-                }, 4000); // change every 4 seconds
+                    }, 800); // Matches CSS transition duration
+                }, 5000); // Change every 5 seconds
             }
-
+            
         });
         
     </script>
