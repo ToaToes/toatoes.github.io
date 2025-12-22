@@ -2,140 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Energy Solutions - BitHouse</title>
+  <title>Natural Gas Mining Solutions | BitHouse</title>
+
   <style>
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body, html {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
+    html, body {
       height: 100%;
-      scroll-behavior: smooth;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #fff;
     }
 
     .container {
       position: relative;
-      flex-direction: column; /* stack vertically */
       height: 100vh;
       overflow: hidden;
     }
 
+    /* BACKGROUND IMAGE — UNCHANGED */
     .image-side {
-      position: relative;
-      flex: 1;
-      background-color: #111;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
 
     .image-side img {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
       object-fit: cover;
-      opacity: 0.6; /* Optional: dim image for readability */
- 
+      opacity: 0.6;
     }
 
-    .text-side {
-      position: absolute;
-      top: 0;
-      right: 0;
-      flex: 1;
-      padding: 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;;
-      height: 100%;
-      width: 100%;
-      align-items: flex-end;
-      text-align: right; /* Right-align text */
+    /* CONTENT OVERLAY */
+    .content {
+      position: relative;
       z-index: 2;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 4rem;
+      text-align: right;
     }
 
-    .text-side .text-block {
-      max-width: 600px;      /* Limit width for readability */
-      margin-top: 2rem;      /* Add spacing from heading */
-      line-height: 1.8;      /* Improve line spacing */
-      font-size: 1.15rem;
-      letter-spacing: 0.3px;
-      font-weight: 300;
+    .content-inner {
+      max-width: 680px;
     }
 
-    /*
-    a {
+    h1 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       color: #0ff;
-      text-decoration: none;
-      margin-top: 2rem;
-      display: inline-block;
-      font-size: 1.05rem; /* Adjust link size 
-
-      /* Enhanced glow effect 
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
+      text-shadow:
+        0 0 10px rgba(0,255,255,0.45),
+        0 0 25px rgba(0,255,255,0.25);
+      margin-bottom: 1.5rem;
     }
-    */
 
-      h1 {
-        font-size: 4.5rem;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        color: #0ff;
-        text-shadow:
-          0 0 10px rgba(0,255,255,0.45),
-          0 0 25px rgba(0,255,255,0.25);
-        margin-bottom: 1rem;
-      }
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #9ff;
+      margin-bottom: 2rem;
+      letter-spacing: 0.5px;
+    }
 
     p {
       color: #ccc;
-      line-height: 1.9;  /* Slightly increased for better readability */
-      margin-bottom: 1.8rem;
-      font-size: 1.2rem; /* Adjusted paragraph size */
-      letter-spacing: 0.3px;      /* Slightly improved letter spacing */
-      font-weight: 300;           /* Lighter font weight for a smoother look */
+      font-size: 1.15rem;
+      line-height: 1.9;
+      margin-bottom: 1.6rem;
+      font-weight: 300;
+      text-shadow:
+        0 0 6px rgba(0,255,255,0.15);
+    }
 
-      /* Enhanced glow effect */
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.3), 
-                   0 0 16px rgba(0, 255, 255, 0.2),
-                   0 0 24px rgba(0, 255, 255, 0.1);
+    .feature-list {
+      margin-top: 2rem;
+      border-right: 2px solid rgba(0,255,255,0.25);
+      padding-right: 1.5rem;
+    }
+
+    .feature-list li {
+      list-style: none;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: #ddd;
+      letter-spacing: 0.3px;
+    }
+
+    .feature-list li::before {
+      content: "▸";
+      color: #0ff;
+      margin-left: 0.5rem;
+    }
+
+    /* subtle fade */
+    .fade {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <div class="text-side">
-      <h1>NATURAL GAS SOLUTIONS</h1>
-      <p>We provide robust, scalable Natural Gas architecture for businesses of all sizes — from startups to enterprises. Our services include cloud migration, DevOps pipelines, containerization, and managed natural gas hosting.</p>
-      <p>Optimize performance, reduce cost, and scale with confidence.</p>
-      <!-- <a href="index.html">⬅ Back to Home</a> -->
-  </div>
-  <div class="image-side">
-        <img src="solutions.png" alt="Natrual Gas Solutions">
+    
+    <div class="image-side">
+      <img src="solutions.png" alt="Natural Gas Mining Infrastructure">
+    </div>
+
+    <div class="content fade">
+      <div class="content-inner">
+
+        <h1>NATURAL GAS MINING SOLUTIONS</h1>
+
+        <h2>From Gas to Hash — Engineered for Scale</h2>
+
+        <p>
+          We are a natural-gas genset–powered crypto mining solution provider delivering
+          end-to-end, modular mining infrastructure — from site selection and gas supply
+          integration to generator sizing, containerized buildout, commissioning, and
+          24/7 operations & maintenance.
+        </p>
+
+        <p>
+          By converting locally available natural gas into reliable, on-site power,
+          we enable miners to reduce energy costs, improve uptime, and scale faster
+          using repeatable, deployment-ready designs.
+        </p>
+
+        <ul class="feature-list">
+          <li>Gas sourcing & interconnection</li>
+          <li>Genset sizing & power engineering</li>
+          <li>Containerized mining buildouts</li>
+          <li>Commissioning & performance tuning</li>
+          <li>24/7 monitoring and O&M</li>
+          <li>Hosting, BOO, or full turnkey delivery</li>
+        </ul>
+
+        <p style="margin-top:2rem;">
+          Whether you need hosting, build-own-operate support, or full turnkey delivery,
+          we provide a bankable, performance-driven pathway from gas to hash.
+        </p>
+
+      </div>
+    </div>
+
   </div>
 
-
-  <script>
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function() {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      // Detect a fast upward scroll near the top of the page
-      if (currentScroll < 50 && lastScrollTop > currentScroll) {
-        history.back();
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-    }, false);
-  </script>
 </body>
 </html>
