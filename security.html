@@ -61,6 +61,14 @@
       margin-bottom: 1rem;
     }
 
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #9ff;
+      margin-bottom: 2rem;
+      letter-spacing: 0.5px;
+    }
+
     p {
       color: #ccc;
       line-height: 1.9;  /* Slightly increased for better readability */
@@ -89,6 +97,52 @@
       max-width: 55%;
       text-align: left;
     }
+
+
+    /* partner slides */
+    .partners {
+      margin-top: 3rem;
+    }
+    
+    .partner-slider {
+      width: 220px;
+      height: 100px;
+      position: relative;
+    }
+    
+    .partner-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    
+    .partner-slide.active {
+      opacity: 1;
+    }
+    
+    .partner-dots {
+      margin-top: 1rem;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #555;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .dot.active {
+      background: #0ff;
+      box-shadow: 0 0 6px rgba(0,255,255,0.8);
+    }
+
   </style>
 </head>
 <body>
@@ -99,6 +153,23 @@
       <p>
         <strong>150MW</strong> operated · OEM-authorized repair · Natural gas mining solutions
       </p>
+
+      <h2>Our Partner</h2>
+
+      <div class="partners">
+        <div class="partner-slider">
+          <img src="whatsminer_part.png" class="partner-slide active" alt="Whatsminer">
+          <img src="boco_part.png" class="partner-slide" alt="Boco">
+          <img src="bitmain_part.png" class="partner-slide" alt="Bitmain">
+        </div>
+      
+        <div class="partner-dots">
+          <span class="dot active" onclick="showPartner(0)"></span>
+          <span class="dot" onclick="showPartner(1)"></span>
+          <span class="dot" onclick="showPartner(2)"></span>
+        </div>
+      </div>
+
 
       <!-- <a href="index.html">← Back to Home</a> -->
     </div>
@@ -118,6 +189,28 @@
       }
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     }, false);
+
+
+    /* partner slides */
+    let partnerIndex = 0;
+    const slides = document.querySelectorAll(".partner-slide");
+    const dots = document.querySelectorAll(".dot");
+  
+    function showPartner(index) {
+      slides.forEach(slide => slide.classList.remove("active"));
+      dots.forEach(dot => dot.classList.remove("active"));
+  
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+      partnerIndex = index;
+    }
+  
+    setInterval(() => {
+      partnerIndex = (partnerIndex + 1) % slides.length;
+      showPartner(partnerIndex);
+  }, 3000);
+
+
   </script>
 </body>
 </html>
