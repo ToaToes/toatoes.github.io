@@ -27,10 +27,10 @@
         html {
             scroll-behavior: smooth;
             background-color: #0f0f0f;
-            overflow-y: scroll;
+            overflow-y: auto;
+            height: auto;
             overscroll-behavior: none;
             /* avoid scroll causing white flash */
-            overflow: hidden; /* Remove browser scrollbars */
         }
 
         body {
@@ -38,26 +38,42 @@
             background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
             font-family: 'Segoe UI', sans-serif;
             color: white;
-            overflow: hidden; /* Remove browser scrollbars */
+            overflow-y: auto;
+            height: auto;
             /* use overflow-y instead of overflow Allow other interactions */
             /* Prevent the “scroll freeze” bug on iPhones */
             -webkit-overflow-scrolling: touch;
-            touch-action: none; /* Your JS takes over scroll */
         }
 
-        /* replace animation */
-        section {
+        /* Normal scrolling sections */
+        #hero,
+        #business {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        /* SPA sections only */
+        #maintenance,
+        #repair,
+        #solutions,
+        #about,
+        #contact {
             position: fixed;
             inset: 0;
             height: 100vh;
             width: 100%;
             display: none;
-            z-index: 1;
-        }
-
-        section.active {
-            display: flex;
             z-index: 10;
+        }
+        
+        #maintenance.active,
+        #repair.active,
+        #solutions.active,
+        #about.active,
+        #contact.active {
+            display: block;
         }
 
         .section-content {
@@ -499,6 +515,7 @@
 
 
 
+    <main id="home">
     <!-- First part intro -->
     <section id="hero">
 
@@ -590,6 +607,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Spacer -->
     <div class="spacer"></div>
