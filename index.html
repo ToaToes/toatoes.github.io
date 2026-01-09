@@ -46,7 +46,9 @@
         }
 
         /* Normal scrolling sections */
-        #hero,
+        #hero {
+            min-height: 50vh;   /* half the viewport height */
+        }
         #business {
             position: relative;
             width: 100%;
@@ -102,7 +104,8 @@
           /* Shift to the right */
           padding-left: 10%;   /* adjust percentage as needed */
           /* Move up 6% */
-          margin-top: -6vh;    /* 6% of viewport height */
+          margin-top: 0;        /* reset */
+          padding-top: 2vh;     /* optional fine-tuning */
         }
         
         /* LOGO */
@@ -279,6 +282,11 @@
        3. Gradient spread (reduce transparency threshold)
        4. Glow using box-shadow    
     */
+
+        #hero .pulse-circle {
+            width: 360px;
+            height: 360px;
+        }
 
         .pulse-circle {
             position: absolute;
