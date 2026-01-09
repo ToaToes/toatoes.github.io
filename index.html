@@ -145,10 +145,12 @@
 
         /* BUSINESS dynamic background */
         #business {
-            position: fixed;
-            inset: 0;
+            position: relative;   /* not overlay change */
+            width: 100%;
+            min-height: 100vh;
             overflow: hidden;
         }
+
         
         /* background image layer */
         .business-bg {
