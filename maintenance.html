@@ -53,10 +53,6 @@
       0 0 25px rgba(0,255,255,0.25);
     margin-bottom: 1rem;
   }
-
-  .fade {
-      animation: fadeIn 1.2s ease-out forwards;
-  }
   
   /* SUBLINE */
   .subtitle {
@@ -137,6 +133,22 @@
       height: 40vh;
     }
     
+  }
+
+  /* subtle fade */
+  .fade {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
 </style>
