@@ -285,18 +285,21 @@
 
         .pulse-circle {
             position: absolute;
-            top: 50%;
+            top: 40%;              /* ⬅ move higher (tweak 35–45%) */
             left: 50%;
             width: 360px;
-            /* Larger size */
             height: 360px;
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 60%);
+            background: radial-gradient(
+                circle,
+                rgba(0, 255, 255, 0.3) 0%,
+                transparent 60%
+            );
             animation: pulse 3s infinite ease-in-out;
             z-index: 0;
-            /* box-shadow: 0 0 60px rgba(0, 255, 255, 0.3); /* Outer glow */
         }
+
 
         @keyframes pulse {
 
