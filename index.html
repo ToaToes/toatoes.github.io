@@ -56,9 +56,25 @@
             -webkit-overflow-scrolling: touch;
         }
 
+
+        /* Darken HERO background only */
+        #hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(28, 31, 29, 0.75),
+                rgba(28, 31, 29, 0.55)
+            );
+            z-index: 0;
+        }
+
         /* Normal scrolling sections */
         #hero {
             min-height: 50vh;   /* half the viewport height */
+            position: relative;
+            z-index: 1;
         }
         #business {
             position: relative;
