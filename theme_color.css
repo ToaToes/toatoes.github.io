@@ -1,0 +1,14 @@
+/* Core Theme Colors */
+--bg-main: #f1f3f0;          /* primary background */
+--bg-secondary: #e6e9e5;     /* subtle gradient / sections */
+--text-main: #1c1f1d;        /* primary text */
+--text-muted: #5f6b63;      /* secondary text */
+
+/* Accent System (replacing cyan) */
+--accent-main: #7a8f85;      /* soft sage-green accent */
+--accent-strong: #4f6f63;   /* darker emphasis */
+--accent-glow: rgba(79, 111, 99, 0.6);
+
+/* Borders & overlays */
+--border-soft: rgba(79, 111, 99, 0.25);
+--overlay-light: rgba(241, 243, 240, 0.85);
