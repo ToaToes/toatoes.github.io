@@ -125,15 +125,17 @@
         }
 
 
-        object, iframe {
+        object,
+        iframe {
             width: 100%;
-            min-height: 100vh;
-            border: none;
-            pointer-events: auto; /* prevent inner HTML from hijacking scroll */
+            height: 100vh;   /* exactly one viewport */
+            display: block; /* removes inline spacing */
         }
 
         section {
             scroll-margin-top: 80px; /* match menu height */
+            margin: 0;
+            padding: 0;
         }
 
         /* HERO SPLIT LAYOUT */
@@ -678,9 +680,6 @@
         </div>
     </section>
     </main>
-
-    <!-- Spacer -->
-    <div class="spacer"></div>
 
 
     <!-- Overlay button on business page, to avoid needing React -->
