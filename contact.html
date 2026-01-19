@@ -148,17 +148,37 @@
       margin-top: 10rem;
     }
 
+    .contact-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        
+            background-image: url("contact_background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        
+            opacity: 1;
+            z-index: 0;
+        
+            pointer-events: none;
+    }
+
     @media (max-width: 768px) {
       .info-section {
         width: 100%;
       }
     }
 
+
   </style>
 </head>
 <body>
 
   <div class="container">
+    <div class="contact-bg"></div>
     <div class="image-side">
       <img src="logo.png" alt="Logo Image">
     </div>
