@@ -6,21 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css"> <!-- Optional external stylesheet -->
   <style>
-    body, html {
+    html, body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #eeedde;
-      color: #1c1f1d;
-      height: 100%;
-      overflow: hidden; /* Prevent scrolling */
-      scroll-behavior: smooth;
       padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1c1f1d;
+      background: linear-gradient(135deg, #f1f3f0, #e6e9e5);
+      overflow-y: auto;        /* ✅ allow scrolling */
+      -webkit-overflow-scrolling: touch;
     }
 
     .container {
+      position: relative;
+      z-index: 2;
       max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
     }
 
@@ -148,22 +150,26 @@
       margin-top: 10rem;
     }
 
+
+    /* Background image layer (same as business-bg) */
     .contact-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-        
-            background-image: url("contact_background.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        
-            opacity: 1;
-            z-index: 0;
-        
-            pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background-image: url("contact_background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Light overlay (same effect as business-overlay) */
+    .contact-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(241, 243, 240, 0.82);
+      z-index: 1;
+      pointer-events: none;
     }
 
     @media (max-width: 768px) {
@@ -177,8 +183,11 @@
 </head>
 <body>
 
+  <div class="contact-bg"></div>
+  <div class="contact-overlay"></div>
+
   <div class="container">
-    <div class="contact-bg"></div>
+
     <div class="image-side">
       <img src="logo.png" alt="Logo Image">
     </div>
