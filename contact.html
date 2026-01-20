@@ -154,17 +154,22 @@
     /* Background image layer (same as business-bg) */
     .contact-bg {
       position: fixed;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
     
       background-image: url("contact_background.jpg");
       background-size: cover;
-      background-position: center;
+      background-position: center center;
       background-repeat: no-repeat;
+      background-attachment: fixed; /* 🔒 stays fixed on scroll */
     
       z-index: 0;
       pointer-events: none;
       opacity: 0.4;
     }
+
 
 
     /* Light overlay (same effect as business-overlay) */
