@@ -19,11 +19,12 @@
 
     .container {
       position: relative;
-      z-index: 2;
+      z-index: 2; /* Higher than overlay and background */
       max-width: 900px;
       margin: 0 auto;
       padding: 4rem 1rem;
       text-align: center;
+      background: transparent; /* Ensure it's transparent */
     }
 
     .image-side {
@@ -158,12 +159,13 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-    
+      
       background-image: url("contact_background.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    
+      background-attachment: scroll; /* Remove or change this */
+      
       z-index: 0;
       pointer-events: none;
       opacity: 0.4;
@@ -179,6 +181,7 @@
       z-index: 1;
       pointer-events: none;
     }
+
 
     @media (max-width: 768px) {
       .info-section {
