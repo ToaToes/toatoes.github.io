@@ -148,72 +148,75 @@
 
   @media (max-width: 900px) {
 
-  /* STRUCTURE */
-  .container {
-    height: 100vh;
+    .container {
+      height: 100vh;
+    }
+  
+    /* IMAGE STILL VISIBLE */
+    .image-side img {
+      opacity: 0.55; /* slightly dimmer for readability */
+    }
+  
+    /* TEXT FULL WIDTH + LEFT */
+    .text-side {
+      height: 100%;
+      padding: 2.5rem 1.5rem;
+      padding-top: 3rem;
+      align-items: flex-start;   
+      text-align: left;          
+    }
+  
+    /* HEADLINE */
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+      text-align: left;
+    }
+  
+    /* SUBTITLE */
+    .subtitle {
+      font-size: 1.1rem;
+      max-width: 100%;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+  
+    /* STATS */
+    .stats {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+  
+    .stat h2 {
+      font-size: 1.6rem;
+      text-align: left;
+    }
+  
+    .stat span {
+      font-size: 0.7rem;
+      text-align: left;
+    }
+  
+    /* LIST */
+    ul {
+      max-width: 100%;
+    }
+  
+    li {
+      font-size: 1rem;
+      padding-left: 1.2rem;
+      padding-right: 0;
+      text-align: left;
+    }
+  
+    /* MOVE MARKER TO LEFT */
+    li::after {
+      right: auto;
+      left: 0;
+    }
   }
 
-  /* REMOVE BACKGROUND IMAGE ON MOBILE 
-  .image-side {
-    display: none;
-  }
-
-  /* TEXT FULL WIDTH */
-  .text-side {
-    height: 100%;
-    padding: 2.5rem 1.5rem;
-    padding-top: 3rem;
-    align-items: left;
-    text-align: left;
-  }
-
-  /* HEADLINE */
-  h1 {
-    font-size: 2.3rem;
-    margin-bottom: 0.8rem;
-  }
-
-  /* SUBTITLE */
-  .subtitle {
-    font-size: 1.1rem;
-    max-width: 100%;
-    margin-bottom: 2.5rem;
-  }
-
-  /* STATS */
-  .stats {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1.5rem;
-  }
-
-  .stat h2 {
-    font-size: 1.6rem;
-  }
-
-  .stat span {
-    font-size: 0.7rem;
-  }
-
-  /* LIST */
-  ul {
-    max-width: 100%;
-    text-align: left;
-  }
-
-  li {
-    font-size: 1rem;
-    padding-right: 0;
-    padding-left: 1.2rem;
-    text-align: left;
-  }
-
-  /* MOVE MARKER TO LEFT FOR MOBILE */
-  li::after {
-    right: auto;
-    left: 0;
-  }
-}
 
 
 </style>
