@@ -237,6 +237,27 @@
             z-index: 2;
         }
 
+        
+        /* RESPONSIVE: STACK ON MOBILE */
+        @media (max-width: 768px) {
+          .hero-split {
+            flex-direction: column;
+            text-align: center;
+          }
+        
+          .hero-divider {
+            display: none;
+          }
+        
+          .hero-slogan {
+            font-size: 1.4rem;
+          }
+        
+          .hero-slogan span:first-child {
+            font-size: 1.6rem;
+          }
+        }
+
 
         #hero {
             z-index: 2;
@@ -492,10 +513,6 @@
             .hero-slogan {
                 font-size: 1.3rem;
                 margin-top: 0rem; /* spacing from logo */
-            }
-
-            .hero-slogan span:first-child {
-                font-size: 1.4rem;
             }
 
             .service-card {
