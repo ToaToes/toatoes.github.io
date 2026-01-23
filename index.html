@@ -500,8 +500,10 @@
 
             .hero-split {
                 flex-direction: column;
-                justify-content: flex-start;
-                padding-top: 5rem; /* push content lower to avoid menu overlap */
+                align-items: flex-start;   /* move content to the left */
+                text-align: left;          /* align text left */
+                padding-left: 5%;          /* optional padding from left edge */
+                padding-top: 5rem;         /* keep vertical spacing */
             }
             
             .hero-logo {
