@@ -125,6 +125,68 @@
         transform: translateY(0);
       }
     }
+
+    @media (max-width: 900px) {
+
+      /* BACKGROUND IMAGE */
+      .image-side img {
+        opacity: 0.35; /* requested */
+      }
+    
+      /* CONTENT WRAPPER */
+      .content {
+        justify-content: flex-start;   /* left instead of right */
+        align-items: flex-start;
+        padding: 2.5rem 1.5rem;
+        text-align: left;
+      }
+    
+      .content-inner {
+        max-width: 100%;
+      }
+    
+      /* HEADLINE */
+      h1 {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+    
+      /* SUBHEAD */
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1.6rem;
+        text-align: left;
+      }
+    
+      /* PARAGRAPHS */
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.4rem;
+        text-align: left;
+      }
+    
+      /* FEATURE LIST */
+      .feature-list {
+        margin-top: 1.8rem;
+        border-right: none;
+        border-left: 2px solid rgba(0,255,255,0.25); /* move accent left */
+        padding-right: 0;
+        padding-left: 1.2rem;
+      }
+    
+      .feature-list li {
+        font-size: 1rem;
+        text-align: left;
+      }
+    
+      .feature-list li::before {
+        margin-left: 0;
+        margin-right: 0.5rem;
+      }
+    }
+
   </style>
 </head>
 
