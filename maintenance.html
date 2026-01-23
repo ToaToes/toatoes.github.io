@@ -121,74 +121,6 @@
     opacity: 0.6;
   }
   
-    
-  @media (max-width: 900px) {
-
-    body, html {
-      overflow: hidden;
-    }
-  
-    .container {
-      flex-direction: column;
-      height: 100vh;
-    }
-  
-    .image-side {
-      display: none;
-    }
-  
-    .text-side {
-      flex: 1;
-      padding: 2rem 1.5rem;
-      padding-top: 10rem;
-      text-align: left; /* force left */
-    }
-  
-    h1,
-    .subtitle,
-    .stats,
-    .stat,
-    .stat h2,
-    .stat span,
-    ul,
-    li {
-      text-align: left; /* force left on ALL text elements */
-      margin-left: 0;
-    }
-  
-    .subtitle {
-      max-width: 100%;
-      margin-bottom: 2.5rem;
-    }
-  
-    .stats {
-      flex-wrap: wrap;
-      justify-content: flex-start; /* not center */
-      gap: 1.5rem;
-    }
-  
-    .stat {
-      min-width: 120px;
-    }
-  
-    .stat h2 {
-      font-size: 1.5rem;
-    }
-  
-    .stat span {
-      font-size: 0.75rem;
-    }
-  
-    ul {
-      max-width: 100%;
-    }
-  
-    li {
-      font-size: 1rem;
-    }
-  }
-
-
   /* subtle fade */
   .fade {
     animation: fadeIn 1.2s ease-out forwards;
@@ -204,6 +136,94 @@
       transform: translateY(0);
     }
   }
+
+   @media (max-width: 900px) {
+  
+    body, html {
+      overflow-y: hidden;
+    }
+  
+    /* STACK LAYOUT */
+    .container {
+      position: relative;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  
+    /* IMAGE AS BACKGROUND */
+    .image-side {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: block;
+    }
+  
+    .image-side img {
+      opacity: 0.15;              /* requested */
+      filter: saturate(0.9);
+    }
+  
+    /* TEXT ABOVE IMAGE */
+    .text-side {
+      position: relative;
+      z-index: 2;
+      flex: none;
+      padding: 2.5rem 1.5rem;
+      padding-top: 7rem;
+      text-align: left;
+      background: transparent;
+    }
+  
+    /* FORCE LEFT ALIGNMENT */
+    h1,
+    .subtitle,
+    .stats,
+    .stat,
+    .stat h2,
+    .stat span,
+    ul,
+    li {
+      text-align: left;
+      margin-left: 0;
+    }
+  
+    /* TYPO REFINEMENT */
+    h1 {
+      font-size: 2.3rem;
+    }
+  
+    .subtitle {
+      font-size: 1.05rem;
+      max-width: 100%;
+      margin-bottom: 2.2rem;
+    }
+  
+    /* STATS */
+    .stats {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+  
+    .stat h2 {
+      font-size: 1.4rem;
+    }
+  
+    .stat span {
+      font-size: 0.75rem;
+    }
+  
+    /* LIST */
+    ul {
+      max-width: 100%;
+    }
+  
+    li {
+      font-size: 1rem;
+    }
+  }
+
 
 </style>
 </head>
